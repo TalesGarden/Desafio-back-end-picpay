@@ -96,6 +96,4 @@ public class Wallet {
         this.walletType = walletType;
     }
 
-    
-
 }
