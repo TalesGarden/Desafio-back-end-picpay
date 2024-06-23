@@ -1,0 +1,18 @@
+package projeto.pic.com.picpay.controller;
+
+import org.springframework.http.ProblemDetail;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import projeto.pic.com.picpay.exception.PicPayException;
+
+@RestControllerAdvice
+public class RestExceptionHandler {
+
+    @ExceptionHandler(PicPayException.class)
+    public ProblemDetail handlePicPayException(PicPayException e){
+        return e.toProblemDetail();
+    }
+
+}
