@@ -2,6 +2,7 @@ package projeto.pic.com.picpay.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import projeto.pic.com.picpay.controller.dto.CreareWalletDto;
 import projeto.pic.com.picpay.entity.Wallet;
 import projeto.pic.com.picpay.service.WalletService;
@@ -26,7 +27,7 @@ public class WalletController {
     }
 
     @PostMapping("wallets")
-    public ResponseEntity<Wallet> postMethodName(@RequestBody CreareWalletDto creareWalletDto) {
+    public ResponseEntity<Wallet> postMethodName(@RequestBody @Valid CreareWalletDto creareWalletDto) {
     
         var walletEntity = walletService.createWallet(creareWalletDto);
         return new ResponseEntity<Wallet>(walletEntity, HttpStatus.CREATED);
