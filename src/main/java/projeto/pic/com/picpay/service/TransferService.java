@@ -37,7 +37,7 @@ public class TransferService {
     @Transactional
     public Transfer transfer(TransferDto transferDto) {
 
-        var sender = walletRepository.findById(transferDto.payee())
+        var sender = walletRepository.findById(transferDto.payer())
                 .orElseThrow(() -> new WalletNotFoundException(transferDto.payer()));
 
         var receiver = walletRepository.findById(transferDto.payee())
@@ -46,11 +46,9 @@ public class TransferService {
         validateTransfer(transferDto, sender);
         sender.debit(transferDto.value());
         receiver.credit(transferDto.value());
-
-        var transfer = new Transfer(sender, receiver, transferDto.value());
-
         walletRepository.save(sender);
         walletRepository.save(receiver);
+        var transfer = new Transfer(sender, receiver, transferDto.value());
         var transferResult = transferRepository.save(transfer);
         
         //cria nova tread para envio da notificação
