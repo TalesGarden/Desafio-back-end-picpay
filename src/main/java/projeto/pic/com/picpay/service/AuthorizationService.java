@@ -3,7 +3,7 @@ package projeto.pic.com.picpay.service;
 import org.springframework.stereotype.Service;
 
 import projeto.pic.com.picpay.client.AuthorizationClient;
-import projeto.pic.com.picpay.entity.Transfer;
+import projeto.pic.com.picpay.controller.dto.TransferDto;
 import projeto.pic.com.picpay.exception.PicPayException;;
 
 
@@ -15,7 +15,7 @@ public class AuthorizationService {
         this.authorizationClient = authorizationClient;
     }
 
-    public boolean isAuthorized(Transfer transfer){
+    public boolean isAuthorized(TransferDto transferDto){
 
         var resp  = authorizationClient.isAuthorized();
 

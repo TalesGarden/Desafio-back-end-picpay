@@ -1,10 +1,8 @@
 package projeto.pic.com.picpay.service;
 
-import org.hibernate.validator.internal.util.logging.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
 import projeto.pic.com.picpay.entity.Transfer;
-import projeto.pic.com.picpay.exception.PicPayException;
 import projeto.pic.com.picpay.client.NotificationClient;
 
 @Service
@@ -31,8 +29,6 @@ public class NotificationService {
         catch(Exception e){
             logger.error("Error while sending notification", e);
         }
-
-        
     }
     
 }

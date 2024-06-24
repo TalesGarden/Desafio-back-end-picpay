@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import projeto.pic.com.picpay.entity.Transfer;
 
 @FeignClient(
-    url = "$(https://run.mocky.io/v3/18959b51-0cc4-4508-9178-c0cd931e6ea2)"
+    name = "NotificationClient",
+    url = "${https://run.mocky.io/v3/18959b51-0cc4-4508-9178-c0cd931e6ea2}"
 )
 public interface NotificationClient {
 

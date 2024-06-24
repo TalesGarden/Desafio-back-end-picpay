@@ -2,9 +2,6 @@ package projeto.pic.com.picpay.entity;
 
 import java.math.BigDecimal;
 import java.util.UUID;
-
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -65,6 +62,12 @@ public class Transfer {
     }
 
     public void setValue(BigDecimal value) {
+        this.value = value;
+    }
+
+    public Transfer(Wallet sender, Wallet receiver, BigDecimal value) {
+        this.sender = sender;
+        this.receiver = receiver;
         this.value = value;
     }
 

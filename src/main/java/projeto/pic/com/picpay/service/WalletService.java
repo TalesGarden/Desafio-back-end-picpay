@@ -8,7 +8,6 @@ import projeto.pic.com.picpay.controller.dto.CreareWalletDto;
 import projeto.pic.com.picpay.entity.Wallet;
 import projeto.pic.com.picpay.exception.WalletDataAlreadyExistsException;
 import projeto.pic.com.picpay.repository.WalletRepository;
-import projeto.pic.com.picpay.repository.WalletTypeRepository;
 
 @Service
 public class WalletService {
